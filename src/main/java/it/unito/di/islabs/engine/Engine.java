@@ -146,9 +146,9 @@ public class Engine extends Thread {
                         again = ((rValueS.equals(old_rValueS)) && (cValueS.equals(old_cValueS)) && (dValueS.equals(old_dValueS)));
 						/* Con questo metodo, elimino ripetizioni di situazioni. */
 						/* Memorizzo i parametri per le future posizioni. Serve solo per la grafica.*/
-                        old_rValueS = rValueS.toString();
-                        old_cValueS = cValueS.toString();
-                        old_dValueS = dValueS.toString();
+                        old_rValueS = rValueS;
+                        old_cValueS = cValueS;
+                        old_dValueS = dValueS;
                     } else {
                         again = false;
                     }
@@ -320,24 +320,24 @@ public class Engine extends Thread {
 
     public String analysePath(String p) {
         //Duplicazione spazi vuoti
-        String temp = "";
+        //String temp = "";
         String[] dir = p.split(" ");
-        String noSpace = "";
+        StringBuilder noSpace = new StringBuilder("");
         for (int i = 0; i < dir.length; i++) {
             if (i != (dir.length - 1)) {
-                noSpace = noSpace + dir[i] + " ";
+                noSpace.append( dir[i] ).append(" ");
             } else {
-                noSpace = noSpace + dir[i];
+                noSpace.append(dir[i]);
             }
         }
 
         //Duplicazione \
         String s = File.separator;
-        dir = noSpace.split("\\\\");
-        String dupli = "";
+        dir = noSpace.toString().split("\\\\");
+        StringBuilder dupli = new StringBuilder("");
         for (int i = 0; i < dir.length; i++) {
-            dupli = dupli + dir[i] + s + s;
+            dupli.append( dir[i] ).append(s).append(s);
         }
-        return dupli;
+        return dupli.toString();
     }
 }
