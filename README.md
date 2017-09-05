@@ -1,6 +1,6 @@
 # islabs
 Intelligent Systems Lab Project
 
-These sources where developed 10 years ago for the final exam of Intelligent Systems Course.
+These sources were developed 10 years ago for the final exam of Intelligent Systems Course.
 
-Celebrating 10 years from graduation and in memory of Prof. Piero Torasso.
+I decided to share them to celebrate 10 years from graduation and in memory of Prof. Piero Torasso.
