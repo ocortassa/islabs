@@ -3,6 +3,9 @@ package it.unito.di.islabs.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Rappresentazione dello stato del Robot
+ */
 public class RubyState {
 	private boolean loaded;
 	private int r;

@@ -1,5 +1,8 @@
 package it.unito.di.islabs.model;
 
+/**
+ * Modello per rappresentare la cella della matrice
+ */
 public class Cell {
 	private int row;
 	private int column;
