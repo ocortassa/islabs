@@ -3,3 +3,6 @@
 *.iml
 target/
 trash/
+**/RubyExecution.log
+/src/main/resources/rules/RubyClips.clp
+/src/main/resources/rules/Ruby.clp
