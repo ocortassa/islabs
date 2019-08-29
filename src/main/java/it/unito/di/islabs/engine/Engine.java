@@ -1,6 +1,7 @@
 package it.unito.di.islabs.engine;
 
 import it.unito.di.islabs.model.RubyState;
+import it.unito.di.islabs.ui.ResourceLoader;
 import it.unito.di.islabs.ui.RubyRescueWorldExecution;
 import jess.JessException;
 import jess.Rete;
@@ -34,12 +35,14 @@ public class Engine extends Thread {
         halt = false;
     }
 
+    public Engine(RubyRescueWorldExecution monitor, String action) {
+        this(monitor, action, ResourceLoader.getRubyDataFile());
+    }
 
-    /**/
-    public Engine(RubyRescueWorldExecution m, String a) {
-        action = a;
+    public Engine(RubyRescueWorldExecution monitor, String action, String fileName) {
+        this.action = action;
 
-        if (m == null) {
+        if (monitor == null) {
             first = true;
             halt = false;
             old_rValueS = "";
@@ -47,10 +50,10 @@ public class Engine extends Thread {
             old_dValueS = "";
             ok = false;
         } else {
-            monitor = m;
+            this.monitor = monitor;
             if (classFirstLoading) {
                 //String modifiedPath = analysePath(m.getSourcePath());
-                String fileName = getClass().getResource("/rules/Ruby.clp").getPath();
+                //String fileName = getClass().getResource("/rules/Ruby.clp").getPath();
                 command = "(batch \"" + fileName + "\")";
                 rete = new Rete();
                 classFirstLoading = false;

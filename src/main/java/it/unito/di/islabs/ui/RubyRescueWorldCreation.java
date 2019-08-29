@@ -1,5 +1,8 @@
 package it.unito.di.islabs.ui;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -10,20 +13,23 @@ import java.util.*;
     Non gestisce errori di modellazione umani.
 */
 public class RubyRescueWorldCreation extends JFrame implements ActionListener, MouseListener {
-	/** Percorso dell'icona specifica.*/
-	private static String wall = "/image/Wall.gif";
-	/** Percorso dell'icona specifica.*/
-	private  static String exit = "/image/Exit.gif";
-	/** Percorso dell'icona specifica.*/
-	private  static String entry = "/image/Entry.gif";
-	/** Percorso dell'icona specifica.*/
-	private  static String debrisNo = "/image/DebrisNo.gif";
-	/** Percorso dell'icona specifica.*/
-	private  static String debrisYes = "/image/DebrisYes.gif";
-	/** Percorso dell'icona specifica.*/
-	private  static String nulla = "/image/Null.gif";
 
-	private  static String random = "/image/random.gif";
+	private final static Logger LOGGER = LoggerFactory.getLogger(RubyRescueWorldCreation.class);
+
+	/** Percorso dell'icona specifica.*/
+	private static String WALL = "/image/Wall.gif";
+	/** Percorso dell'icona specifica.*/
+	private  static String EXIT = "/image/Exit.gif";
+	/** Percorso dell'icona specifica.*/
+	private  static String ENTRY = "/image/Entry.gif";
+	/** Percorso dell'icona specifica.*/
+	private  static String DEBRIS_NO = "/image/DebrisNo.gif";
+	/** Percorso dell'icona specifica.*/
+	private  static String DEBRIS_YES = "/image/DebrisYes.gif";
+	/** Percorso dell'icona specifica.*/
+	private  static String VOID = "/image/Null.gif";
+
+	private  static String RANDOM = "/image/random.gif";
 
 	/** Scrive il file CLIPS.*/
 	private FileWriter out, outClips;
@@ -75,12 +81,12 @@ public class RubyRescueWorldCreation extends JFrame implements ActionListener, M
 		JPanel grid = new JPanel();
 		grid.setLayout(new GridLayout(r, c));
 		grid.setBorder(BorderFactory.createTitledBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.WHITE), BorderFactory.createRaisedBevelBorder()), "Mappa"));
-		iconWall = new ImageIcon(getClass().getResource(wall).getPath(), "wall");
-		iconEntry = new ImageIcon(getClass().getResource(entry).getPath(), "entry");
-		iconExit = new ImageIcon(getClass().getResource(exit).getPath(), "exit");
-		iconDebrisNo = new ImageIcon(getClass().getResource(debrisNo).getPath(), "debris");
-		iconDebrisYes = new ImageIcon(getClass().getResource(debrisYes).getPath(), "debrisYes");
-		iconNull = new ImageIcon(getClass().getResource(nulla).getPath(), "empty");
+		iconWall = ResourceLoader.loadImageIcon(getClass(), WALL, "wall");
+		iconEntry = ResourceLoader.loadImageIcon(getClass(), ENTRY, "entry");
+		iconExit = ResourceLoader.loadImageIcon(getClass(), EXIT, "exit");
+		iconDebrisNo = ResourceLoader.loadImageIcon(getClass(), DEBRIS_NO, "debris");
+		iconDebrisYes = ResourceLoader.loadImageIcon(getClass(), DEBRIS_YES, "debrisYes");
+		iconNull = ResourceLoader.loadImageIcon(getClass(), VOID, "empty");
 
 		JButton b;
 		for (int i = 0; i < nr; i++) {
@@ -92,11 +98,11 @@ public class RubyRescueWorldCreation extends JFrame implements ActionListener, M
 				grid.add(b);
 			}
 		}
-		Icon iconCreate = new ImageIcon(getClass().getResource("/image/edit.gif").getPath());
-		Icon iconOk = new ImageIcon(getClass().getResource("/image/ok.gif").getPath());
-		Icon iconRandom = new ImageIcon(getClass().getResource("/image/random.gif").getPath());
-		Icon iconClear = new ImageIcon(getClass().getResource("/image/clear.gif").getPath());
-		Icon iconExitProgram = new ImageIcon(getClass().getResource("/image/exitProgram.gif").getPath());
+		Icon iconCreate = ResourceLoader.loadImageIcon(getClass(), "/image/edit.gif");
+		Icon iconOk = ResourceLoader.loadImageIcon(getClass(), "/image/ok.gif");
+		Icon iconRandom = ResourceLoader.loadImageIcon(getClass(), "/image/random.gif");
+		Icon iconClear = ResourceLoader.loadImageIcon(getClass(), "/image/clear.gif");
+		Icon iconExitProgram = ResourceLoader.loadImageIcon(getClass(), "/image/exitProgram.gif");
 		JPanel total = new JPanel();
 		total.setLayout(new BorderLayout());
 		total.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.WHITE), BorderFactory.createEmptyBorder(18,18,18,18)));
@@ -178,19 +184,36 @@ public class RubyRescueWorldCreation extends JFrame implements ActionListener, M
 				ImageIcon icon;
 				try {
 					// Le parti STATICHE del programma CLIPS. Le altre vengono aggiornate automaticamente
-					FileReader in1 = new FileReader(getClass().getResource("/clp/Parte1.clp").getPath());
-					FileReader in3 = new FileReader(getClass().getResource("/clp/Parte3.clp").getPath());
-					FileReader in5 = new FileReader(getClass().getResource("/clp/Parte5.clp").getPath());
-					FileReader in7 = new FileReader(getClass().getResource("/clp/Parte7.clp").getPath());
+					//FileReader in1 = new FileReader(getClass().getResource("/clp/Parte1.clp").getPath());
 
-					FileReader in1c = new FileReader(getClass().getResource("/clpclips/Parte1.clp").getPath());
-					FileReader in3c = new FileReader(getClass().getResource("/clpclips/Parte3.clp").getPath());
-					FileReader in5c = new FileReader(getClass().getResource("/clpclips/Parte5.clp").getPath());
-					FileReader in7c = new FileReader(getClass().getResource("/clpclips/Parte7.clp").getPath());
+					//InputStream in = getClass().getResourceAsStream();
+					//BufferedReader in1 = new BufferedReader(new InputStreamReader(in));
+					BufferedReader in1 = ResourceLoader.loadResource(getClass(), "/clp/Parte1.clp");
+					BufferedReader in3 = ResourceLoader.loadResource(getClass(), "/clp/Parte3.clp");
+					BufferedReader in5 = ResourceLoader.loadResource(getClass(), "/clp/Parte5.clp");
+					BufferedReader in7 = ResourceLoader.loadResource(getClass(), "/clp/Parte7.clp");
+
+					BufferedReader in1c = ResourceLoader.loadResource(getClass(), "/clpclips/Parte1.clp");
+					BufferedReader in3c = ResourceLoader.loadResource(getClass(), "/clpclips/Parte3.clp");
+					BufferedReader in5c = ResourceLoader.loadResource(getClass(), "/clpclips/Parte5.clp");
+					BufferedReader in7c = ResourceLoader.loadResource(getClass(), "/clpclips/Parte7.clp");
 
 					// File di output.
-					out = new FileWriter(getClass().getResource("/rules/Ruby.clp").getPath());
-					outClips = new FileWriter(getClass().getResource("/rules/RubyClips.clp").getPath());
+					//out = new FileWriter(getClass().getResource("/rules/Ruby.clp").getPath());
+					//outClips = new FileWriter(getClass().getResource("/rules/RubyClips.clp").getPath());
+
+					//File tmpOutFile = getClass().getResource("/rules/Ruby.clp").getPath();
+					//File tmpOutClipsFile = getClass().getResource("/rules/RubyClips.clp").getPath();
+
+					File tmpOutFile = ResourceLoader.createRubyDataFile();
+					File tmpOutClipsFile = ResourceLoader.createRubyClipsDataFile();
+
+					out = new FileWriter(tmpOutFile);
+					outClips = new FileWriter(tmpOutClipsFile);
+
+					//File temp = File.createTempFile("temp-file-name", ".tmp");
+
+
 					// Scrittura parte statica 1.
 					int c, cc;
 					c = in1.read();
@@ -316,6 +339,7 @@ public class RubyRescueWorldCreation extends JFrame implements ActionListener, M
 					// Chiusura file di output.
 					out.close();
 					outClips.close();
+					LOGGER.info("Fatto! Mondo creato.");
 
 					setVisible(false);
 
@@ -326,7 +350,7 @@ public class RubyRescueWorldCreation extends JFrame implements ActionListener, M
 					}
 					rrwe = new RubyRescueWorldExecution(cells, titleFrame);
 				} catch(Exception eee) {
-					System.out.println(eee.getMessage());
+					LOGGER.error(eee.getMessage(), eee);
 				}
 			}//if (controlMap == true)
 			else {

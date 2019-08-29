@@ -1,12 +1,7 @@
 package it.unito.di.islabs.ui;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import java.io.*;
-import java.util.*;
-import jess.*;
-import java.lang.management.*;
 
 class JLogoFrame extends JFrame {
 	private static int WAIT = 30;
@@ -14,7 +9,7 @@ class JLogoFrame extends JFrame {
 		setUndecorated(true);
 		Container ct = getContentPane();
 		JPanel total3 = new JPanel(new BorderLayout());
-		JLabel logo = new JLabel( new ImageIcon( getClass().getResource("/image/logo.jpg").getPath() ) );
+		JLabel logo = new JLabel( ResourceLoader.loadImageIcon( getClass(), "/image/logo.jpg") );
 		JProgressBar bar = new JProgressBar(0, 100);
 		bar.setString("Caricamento in corso...");
 		bar.setStringPainted(true);

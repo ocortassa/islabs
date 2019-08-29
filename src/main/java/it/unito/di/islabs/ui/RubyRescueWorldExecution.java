@@ -29,44 +29,44 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
     /**
      * --- Percorsi relativi per le immagini da caricare ---
      */
-    private String wall = "/image/Wall.gif";
-    private String exit = "/image/Exit.gif";
-    private String entry = "/image/Entry.gif";
-    private String debrisNo = "/image/DebrisNo.gif";
-    private String debrisYes = "/image/DebrisYes.gif";
-    private String nulla = "/image/Null.gif";
-    private String rubyUP = "/image/RobotUP.gif";
-    private String rubyDOWN = "/image/RobotDOWN.gif";
-    private String rubyLEFT = "/image/RobotLEFT.gif";
-    private String rubyRIGHT = "/image/RobotRIGHT.gif";
-    private String rubyUPEntry = "/image/RobotUP_Entry.gif";
-    private String rubyDOWNEntry = "/image/RobotDOWN_Entry.gif";
-    private String rubyLEFTEntry = "/image/RobotLEFT_Entry.gif";
-    private String rubyRIGHTEntry = "/image/RobotRIGHT_Entry.gif";
-    private String rubyUPDebrisNo = "/image/RobotDebrisNoUP.gif";
-    private String rubyRIGHTDebrisNo = "/image/RobotDebrisNoRIGHT.gif";
-    private String rubyDOWNDebrisNo = "/image/RobotDebrisNoDOWN.gif";
-    private String rubyLEFTDebrisNo = "/image/RobotDebrisNoLEFT.gif";
-    private String rubyUPDebrisYes = "/image/RobotDebrisYesUP.gif";
-    private String rubyRIGHTDebrisYes = "/image/RobotDebrisYesRIGHT.gif";
-    private String rubyDOWNDebrisYes = "/image/RobotDebrisYesDOWN.gif";
-    private String rubyLEFTDebrisYes = "/image/RobotDebrisYesLEFT.gif";
-    private String rubyStep = "/image/RobotStep.gif";
-    private String debrisNoSeen = "/image/DebrisNoSeen.gif";
-    private String rubyView = "/image/RubyView.gif";
-    private String rubyViewDebrisNo = "/image/RubyViewDebrisNo.gif";
-    private String rubyViewDebrisYes = "/image/RubyViewDebrisYes.gif";
-    private String reset = "/image/reset.gif";
-    private String go = "/image/go.gif";
-    private String goStep = "/image/gostep.gif";
-    private String change = "/image/change.gif";
-    private String save = "/image/save.gif";
-    private String prompt = "/image/prompt.gif";
-    private String verify = "/image/verify.gif";
-    private String stop = "/image/stop.gif";
-    private String exitProgram = "/image/exitProgram.gif";
-    private String DebrisYesViewed = "/image/DebrisYesViewed.gif";
-    private String unusefulCell = "/image/nousefulCell.gif";
+    private String IMAGE_WALL = "/image/Wall.gif";
+    private String IMAGE_EXIT = "/image/Exit.gif";
+    private String IMAGE_ENTRY = "/image/Entry.gif";
+    private String DEBRIS_NO = "/image/DebrisNo.gif";
+    private String DEBRIS_YES = "/image/DebrisYes.gif";
+    private String VOID = "/image/Null.gif";
+    private String RUBY_UP = "/image/RobotUP.gif";
+    private String RUBY_DOWN = "/image/RobotDOWN.gif";
+    private String RUBY_LEFT = "/image/RobotLEFT.gif";
+    private String RUBY_RIGHT = "/image/RobotRIGHT.gif";
+    private String RUBY_UP_ENTRY = "/image/RobotUP_Entry.gif";
+    private String RUBY_DOWN_ENTRY = "/image/RobotDOWN_Entry.gif";
+    private String RUBY_LEFT_ENTRY = "/image/RobotLEFT_Entry.gif";
+    private String RUBY_RIGHT_ENTRY = "/image/RobotRIGHT_Entry.gif";
+    private String RUBY_UP_DEBRIS_NO = "/image/RobotDebrisNoUP.gif";
+    private String RUBY_RIGHT_DEBRIS_NO = "/image/RobotDebrisNoRIGHT.gif";
+    private String RUBY_DOWN_DEBRIS_NO = "/image/RobotDebrisNoDOWN.gif";
+    private String RUBY_LEFT_DEBRIS_NO = "/image/RobotDebrisNoLEFT.gif";
+    private String RUBY_UP_DEBRIS_YES = "/image/RobotDebrisYesUP.gif";
+    private String RUBY_RIGHT_DEBRIS_YES = "/image/RobotDebrisYesRIGHT.gif";
+    private String RUBY_DOWN_DEBRIS_YES = "/image/RobotDebrisYesDOWN.gif";
+    private String RUBY_LEFT_DEBRIS_YES = "/image/RobotDebrisYesLEFT.gif";
+    private String RUBY_STEP = "/image/RobotStep.gif";
+    private String DEBRIS_NO_SEEN = "/image/DebrisNoSeen.gif";
+    private String RUBY_VIEW = "/image/RubyView.gif";
+    private String RUBY_VIEW_DEBRIS_NO = "/image/RubyViewDebrisNo.gif";
+    private String RUBY_VIEW_DEBRIS_YES = "/image/RubyViewDebrisYes.gif";
+    private String RESET = "/image/reset.gif";
+    private String GO = "/image/go.gif";
+    private String GO_STEP = "/image/gostep.gif";
+    private String CHANGE = "/image/change.gif";
+    private String SAVE = "/image/save.gif";
+    private String PROMPT = "/image/prompt.gif";
+    private String VERIFY = "/image/verify.gif";
+    private String STOP = "/image/stop.gif";
+    private String EXIT_PROGRAM = "/image/exitProgram.gif";
+    private String DEBRIS_YES_VIEWED = "/image/DebrisYesViewed.gif";
+    private String USELESS_CELL = "/image/nousefulCell.gif";
 
     /**
      * --- Icone dell'interfaccia ---
@@ -134,7 +134,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
      * @param cellsButton Le celle della mappa
      */
     public RubyRescueWorldExecution(JButton[][] cellsButton, String titleFrame) {
-        super("Roby-Rescue World Execution  (Versione motore Jess: 7.0 beta) - " + titleFrame);
+        super("Ruby-Rescue World Execution  (Versione motore Jess: 7.0 beta) - " + titleFrame);
         //System.gc(); // Richiamo forzato del garbage collector
         /*---------------- Inizializzazione ----------------------*/
 
@@ -177,53 +177,52 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
 
 		/*---------------- Caricamento delle icone ----------------------*/
         //Icone della mappa.
-        iconWall = new ImageIcon(getClass().getResource(wall).getPath(), "wall");
-        iconEntry = new ImageIcon(getClass().getResource(entry).getPath(), "entry");
-        iconExit = new ImageIcon(getClass().getResource(exit).getPath(), "exit");
-        iconDebrisNo = new ImageIcon(getClass().getResource(debrisNo).getPath(), "debris");
-        iconDebrisNoSeen = new ImageIcon(getClass().getResource(debrisNoSeen).getPath(), "debrisNoSeen");
-        iconDebrisYes = new ImageIcon(getClass().getResource(debrisYes).getPath(), "debrisYes");
-        iconNull = new ImageIcon(getClass().getResource(nulla).getPath(), "empty");
+        iconWall = ResourceLoader.loadImageIcon(getClass(), IMAGE_WALL, "wall");
+        iconEntry = ResourceLoader.loadImageIcon(getClass(), IMAGE_ENTRY, "entry");
+        iconExit = ResourceLoader.loadImageIcon(getClass(), IMAGE_EXIT, "exit");
+        iconDebrisNo = ResourceLoader.loadImageIcon(getClass(), DEBRIS_NO, "debris");
+        iconDebrisNoSeen = ResourceLoader.loadImageIcon(getClass(), DEBRIS_NO_SEEN, "debrisNoSeen");
+        iconDebrisYes = ResourceLoader.loadImageIcon(getClass(), DEBRIS_YES, "debrisYes");
+        iconNull = ResourceLoader.loadImageIcon(getClass(), VOID, "empty");
         //Icone di Ruby sulle entrate.
-        iconRubyUPEntry = new ImageIcon(getClass().getResource(rubyUPEntry).getPath(), "RubyUPEntry");
-        iconRubyDOWNEntry = new ImageIcon(getClass().getResource(rubyDOWNEntry).getPath(), "RubyDOWNEntry");
-        iconRubyLEFTEntry = new ImageIcon(getClass().getResource(rubyLEFTEntry).getPath(), "RubyLEFTEntry");
-        iconRubyRIGHTEntry = new ImageIcon(getClass().getResource(rubyRIGHTEntry).getPath(), "RubyRIGHTEntry");
+        iconRubyUPEntry = ResourceLoader.loadImageIcon(getClass(), RUBY_UP_ENTRY, "RubyUPEntry");
+        iconRubyDOWNEntry = ResourceLoader.loadImageIcon(getClass(), RUBY_DOWN_ENTRY, "RubyDOWNEntry");
+        iconRubyLEFTEntry = ResourceLoader.loadImageIcon(getClass(), RUBY_LEFT_ENTRY, "RubyLEFTEntry");
+        iconRubyRIGHTEntry = ResourceLoader.loadImageIcon(getClass(), RUBY_RIGHT_ENTRY, "RubyRIGHTEntry");
         //Icone di Ruby sul passaggio vuoto.
-        iconRubyDOWN = new ImageIcon(getClass().getResource(rubyDOWN).getPath(), "RubyDOWN");
-        iconRubyLEFT = new ImageIcon(getClass().getResource(rubyLEFT).getPath(), "RubyLEFT");
-        iconRubyUP = new ImageIcon(getClass().getResource(rubyUP).getPath(), "RubyUP");
-        iconRubyRIGHT = new ImageIcon(getClass().getResource(rubyRIGHT).getPath(), "RubyRIGHT");
+        iconRubyDOWN = ResourceLoader.loadImageIcon(getClass(), RUBY_DOWN, "RubyDOWN");
+        iconRubyLEFT = ResourceLoader.loadImageIcon(getClass(), RUBY_LEFT, "RubyLEFT");
+        iconRubyUP = ResourceLoader.loadImageIcon(getClass(), RUBY_UP, "RubyUP");
+        iconRubyRIGHT = ResourceLoader.loadImageIcon(getClass(), RUBY_RIGHT, "RubyRIGHT");
         //Icone di Ruby sulle macerie senza persona.
-        iconRubyRIGHTDebrisNo = new ImageIcon(getClass().getResource(rubyRIGHTDebrisNo).getPath(), "RubyRIGHTDebrisNo");
-        iconRubyUPDebrisNo = new ImageIcon(getClass().getResource(rubyUPDebrisNo).getPath(), "RubyUPDebrisNo");
-        iconRubyDOWNDebrisNo = new ImageIcon(getClass().getResource(rubyDOWNDebrisNo).getPath(), "RubyDOWNDebrisNo");
-        iconRubyLEFTDebrisNo = new ImageIcon(getClass().getResource(rubyLEFTDebrisNo).getPath(), "RubyLEFTDebrisNo");
+        iconRubyRIGHTDebrisNo = ResourceLoader.loadImageIcon(getClass(), RUBY_RIGHT_DEBRIS_NO, "RubyRIGHTDebrisNo");
+        iconRubyUPDebrisNo = ResourceLoader.loadImageIcon(getClass(), RUBY_UP_DEBRIS_NO, "RubyUPDebrisNo");
+        iconRubyDOWNDebrisNo = ResourceLoader.loadImageIcon(getClass(), RUBY_DOWN_DEBRIS_NO, "RubyDOWNDebrisNo");
+        iconRubyLEFTDebrisNo = ResourceLoader.loadImageIcon(getClass(), RUBY_LEFT_DEBRIS_NO, "RubyLEFTDebrisNo");
         //Icone di Ruby sulle macerie con persona.
-        iconRubyRIGHTDebrisYes = new ImageIcon(getClass().getResource(rubyRIGHTDebrisYes).getPath(), "RubyRIGHTDebrisYes");
-        iconRubyUPDebrisYes = new ImageIcon(getClass().getResource(rubyUPDebrisYes).getPath(), "RubyUPDebrisYes");
-        iconRubyDOWNDebrisYes = new ImageIcon(getClass().getResource(rubyDOWNDebrisYes).getPath(), "RubyDOWNDebrisYes");
-        iconRubyLEFTDebrisYes = new ImageIcon(getClass().getResource(rubyLEFTDebrisYes).getPath(), "RubyLEFTDebrisYes");
-        iconDebrisYesViewed = new ImageIcon(getClass().getResource(DebrisYesViewed).getPath(), "DebrisYesViewed");
+        iconRubyRIGHTDebrisYes = ResourceLoader.loadImageIcon(getClass(), RUBY_RIGHT_DEBRIS_YES, "RubyRIGHTDebrisYes");
+        iconRubyUPDebrisYes = ResourceLoader.loadImageIcon(getClass(), RUBY_UP_DEBRIS_YES, "RubyUPDebrisYes");
+        iconRubyDOWNDebrisYes = ResourceLoader.loadImageIcon(getClass(), RUBY_DOWN_DEBRIS_YES, "RubyDOWNDebrisYes");
+        iconRubyLEFTDebrisYes = ResourceLoader.loadImageIcon(getClass(), RUBY_LEFT_DEBRIS_YES, "RubyLEFTDebrisYes");
+        iconDebrisYesViewed = ResourceLoader.loadImageIcon(getClass(), DEBRIS_YES_VIEWED, "DebrisYesViewed");
         //Icona del passaggio vuoto.
-        iconRubyStep = new ImageIcon(getClass().getResource(rubyStep).getPath(), "RubyStep");
+        iconRubyStep = ResourceLoader.loadImageIcon(getClass(), RUBY_STEP, "RubyStep");
         //Icone per i bottoni
-        iconReset = new ImageIcon(getClass().getResource(reset).getPath(), "");
-        iconExitProgram = new ImageIcon(getClass().getResource(exitProgram).getPath(), "");
-        iconGo = new ImageIcon(getClass().getResource(go).getPath(), "");
-        iconGoStep = new ImageIcon(getClass().getResource(goStep).getPath(), "");
-        iconStop = new ImageIcon(getClass().getResource(stop).getPath(), "");
-        iconVerify = new ImageIcon(getClass().getResource(verify).getPath(), "");
-        iconChange = new ImageIcon(getClass().getResource(change).getPath(), "");
-        iconPrompt = new ImageIcon(getClass().getResource(prompt).getPath(), "");
-        iconSave = new ImageIcon(getClass().getResource(save).getPath(), "");
+        iconReset = ResourceLoader.loadImageIcon(getClass(), RESET);
+        iconExitProgram = ResourceLoader.loadImageIcon(getClass(), EXIT_PROGRAM);
+        iconGo = ResourceLoader.loadImageIcon(getClass(), GO);
+        iconGoStep = ResourceLoader.loadImageIcon(getClass(), GO_STEP);
+        iconStop = ResourceLoader.loadImageIcon(getClass(), STOP);
+        iconVerify = ResourceLoader.loadImageIcon(getClass(), VERIFY);
+        iconChange = ResourceLoader.loadImageIcon(getClass(), CHANGE);
+        iconPrompt = ResourceLoader.loadImageIcon(getClass(), PROMPT);
+        iconSave = ResourceLoader.loadImageIcon(getClass(), SAVE);
         //Icone per la vista di Ruby
-        iconRubyView = new ImageIcon(getClass().getResource(rubyView).getPath(), "empty");
-        iconRubyViewDebrisNo = new ImageIcon(getClass().getResource(rubyViewDebrisNo).getPath(), "debris");
-        iconRubyViewDebrisYes = new ImageIcon(getClass().getResource(rubyViewDebrisYes).getPath(), "debrisYes");
+        iconRubyView = ResourceLoader.loadImageIcon(getClass(), RUBY_VIEW, "empty");
+        iconRubyViewDebrisNo = ResourceLoader.loadImageIcon(getClass(), RUBY_VIEW_DEBRIS_NO, "debris");
+        iconRubyViewDebrisYes = ResourceLoader.loadImageIcon(getClass(), RUBY_VIEW_DEBRIS_YES, "debrisYes");
         // Cella inutile per Ruby
-        iconUnusefulCell = new ImageIcon(getClass().getResource(unusefulCell).getPath(), "");
-
+        iconUnusefulCell = ResourceLoader.loadImageIcon(getClass(), USELESS_CELL);
 
 		/*-------- Impostazione dinamica dell'icona di Ruby all'entrata --------*/
         JLabel b = null;
@@ -238,10 +237,10 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
                 if (iconDesc.equals("debrisYes"))
                     counterSurvivor++;
 
-                if ((iconDesc.equals("debris")) || (iconDesc.equals("debrisYes")) || (iconDesc.equals("empty")) || (iconDesc.equals("entry")))
+                if ((iconDesc.equals("debris")) || (iconDesc.equals("debrisYes")) || (iconDesc.equals("empty")) || (iconDesc.equals("IMAGE_ENTRY")))
                     counterCellsPossible++;
 
-                if (iconDesc.equals("entry")) {
+                if (iconDesc.equals("IMAGE_ENTRY")) {
                     if (i == 0) {
                         b = new JLabel(iconRubyDOWNEntry);
                         entry_r = i;
@@ -451,7 +450,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
         creditsPanel.add(BorderLayout.CENTER, areaCredits);
         // Importazione del file di testo credits.txt
         try {
-            BufferedReader br = new BufferedReader(new FileReader(new File(getClass().getResource("/credits.txt").getPath())));
+            BufferedReader br = ResourceLoader.loadResource(getClass(),"/credits.txt");
             String s = br.readLine();
             String tot = "";
             while (s != null) {
@@ -601,7 +600,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
                 set(x, y, iconRubyDOWNDebrisNo);
             if ((desc.equals("debrisYes")) || (desc.equals("RubyLEFTDebrisYes")) || (desc.equals("RubyRIGHTDebrisYes"))) // DebrisYes
                 set(x, y, iconRubyDOWNDebrisYes);
-            if (desc.equals("entry")) // Entrata
+            if (desc.equals("IMAGE_ENTRY")) // Entrata
             {
                 visitedCells[x][y] = false;
             }
@@ -613,7 +612,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
                 while ((tempx < nr) && (tempCount < 3)) {
                     ImageIcon tempView = (ImageIcon) (cells[tempx][y].getIcon());
                     String tempDesc = tempView.getDescription();
-                    if (tempDesc.equals("wall")) break;
+                    if (tempDesc.equals("IMAGE_WALL")) break;
                     if (tempDesc.equals("empty"))
                         cells[tempx][y].setIcon(iconRubyView);
                     if (tempDesc.equals("debris"))
@@ -634,7 +633,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
                 set(x, y, iconRubyUPDebrisNo);
             if ((desc.equals("debrisYes")) || (desc.equals("RubyLEFTDebrisYes")) || (desc.equals("RubyRIGHTDebrisYes"))) // DebrisYes
                 set(x, y, iconRubyUPDebrisYes);
-            if (desc.equals("entry")) // Entrata
+            if (desc.equals("IMAGE_ENTRY")) // Entrata
             {
                 visitedCells[x][y] = false;
             }
@@ -645,7 +644,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
                 while ((tempx >= 0) && (tempCount < 3)) {
                     ImageIcon tempView = (ImageIcon) (cells[tempx][y].getIcon());
                     String tempDesc = tempView.getDescription();
-                    if (tempDesc.equals("wall")) break;
+                    if (tempDesc.equals("IMAGE_WALL")) break;
                     if (tempDesc.equals("empty"))
                         cells[tempx][y].setIcon(iconRubyView);
                     if (tempDesc.equals("debris"))
@@ -666,7 +665,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
                 set(x, y, iconRubyLEFTDebrisNo);
             if ((desc.equals("debrisYes")) || (desc.equals("RubyUPDebrisYes")) || (desc.equals("RubyDOWNDebrisYes"))) // DebrisYes
                 set(x, y, iconRubyLEFTDebrisYes);
-            if (desc.equals("entry")) // Entrata
+            if (desc.equals("IMAGE_ENTRY")) // Entrata
             {
                 visitedCells[x][y] = false;
             }
@@ -677,7 +676,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
                 while ((tempy >= 0) && (tempCount < 3)) {
                     ImageIcon tempView = (ImageIcon) (cells[x][tempy].getIcon());
                     String tempDesc = tempView.getDescription();
-                    if (tempDesc.equals("wall")) break;
+                    if (tempDesc.equals("IMAGE_WALL")) break;
                     if (tempDesc.equals("empty"))
                         cells[x][tempy].setIcon(iconRubyView);
                     if (tempDesc.equals("debris"))
@@ -698,7 +697,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
                 set(x, y, iconRubyRIGHTDebrisNo);
             if ((desc.equals("debrisYes")) || (desc.equals("RubyUPDebrisYes")) || (desc.equals("RubyDOWNDebrisYes"))) // DebrisYes
                 set(x, y, iconRubyRIGHTDebrisYes);
-            if (desc.equals("entry")) // Entrata
+            if (desc.equals("IMAGE_ENTRY")) // Entrata
             {
                 visitedCells[x][y] = false;
             }
@@ -709,7 +708,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
                 while ((tempy < nc) && (tempCount < 3)) {
                     ImageIcon tempView = (ImageIcon) (cells[x][tempy].getIcon());
                     String tempDesc = tempView.getDescription();
-                    if (tempDesc.equals("wall")) break;
+                    if (tempDesc.equals("IMAGE_WALL")) break;
                     if (tempDesc.equals("empty"))
                         cells[x][tempy].setIcon(iconRubyView);
                     if (tempDesc.equals("debris"))
@@ -832,8 +831,9 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
      * Azioni eseguite all'uscita di Ruby dalla mappa.
      */
     public void rubyToExit() {
-        if (planningFrame != null)
+        if (planningFrame != null) {
             planningFrame.setVisible(false);
+        }
         engine = new Engine(this, "stop");
         goButton.setEnabled(false);
         stopButton.setEnabled(false);
@@ -1135,7 +1135,7 @@ public class RubyRescueWorldExecution extends JFrame implements ActionListener, 
         }
         // Uscita.
         if (b.getText().equals("Esci                                     ")) {
-            //System.exit(0);
+            //System.IMAGE_EXIT(0);
             windowClosing(null);
         }
     }

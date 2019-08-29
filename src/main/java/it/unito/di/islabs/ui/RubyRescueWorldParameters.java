@@ -1,34 +1,36 @@
 package it.unito.di.islabs.ui;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.io.*;
-import java.util.*;
-
-import it.unito.di.islabs.engine.Engine;
 import it.unito.di.islabs.engine.RegisterThread;
 
-import javax.swing.event.*;
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.*;
+import java.util.StringTokenizer;
 
 /** GUI per il settaggio dei parametri del mondo.
 */
 public class RubyRescueWorldParameters extends JFrame implements ActionListener, ListSelectionListener, WindowListener {
-	private String execute = "/image/ok.gif";
-	private String delete = "/image/clear.gif";
-	private String modify = "/image/edit.gif";
+	private String EXECUTE = "/image/ok.gif";
+	private String DELETE = "/image/clear.gif";
+	private String MODIFY = "/image/edit.gif";
 	/** Percorso dell'icona specifica.*/
-	private static String wall = "/image/Wallp.gif";
+	private static String WALL = "/image/Wallp.gif";
 	/** Percorso dell'icona specifica.*/
-	private  static String exit = "/image/Exitp.gif";
+	private  static String EXIT = "/image/Exitp.gif";
 	/** Percorso dell'icona specifica.*/
-	private  static String entry = "/image/Entryp.gif";
+	private  static String ENTRY = "/image/Entryp.gif";
 	/** Percorso dell'icona specifica.*/
-	private  static String debrisNo = "/image/DebrisNop.gif";
+	private  static String DEBRIS_NO = "/image/DebrisNop.gif";
 	/** Percorso dell'icona specifica.*/
-	private  static String debrisYes = "/image/DebrisYesp.gif";
+	private  static String DEBRIS_YES = "/image/DebrisYesp.gif";
 	/** Percorso dell'icona specifica.*/
-	private  static String nulla = "/image/Nullp.gif";
+	private  static String VOID = "/image/Nullp.gif";
 	/** Scrive il file CLIPS.*/
 	private FileWriter out, outClips;
 	/** Le varie icone*/
@@ -38,11 +40,11 @@ public class RubyRescueWorldParameters extends JFrame implements ActionListener,
 	private JTextField nrighe = new JTextField();
 	/** Campo di testo per il numero di colonne.*/
 	private JTextField ncolonne = new JTextField();
-	private Icon iconCreate = new ImageIcon(getClass().getResource("/image/edit.gif").getPath());
-	private Icon iconImport = new ImageIcon(getClass().getResource("/image/import.gif").getPath());
-	private Icon iconDelete = new ImageIcon(getClass().getResource(delete).getPath());
-	private Icon iconExecute = new ImageIcon(getClass().getResource(execute).getPath());
-	private Icon iconModify = new ImageIcon(getClass().getResource(modify).getPath());
+	private Icon iconCreate = ResourceLoader.loadImageIcon(getClass(), "/image/edit.gif");
+	private Icon iconImport = ResourceLoader.loadImageIcon(getClass(), "/image/import.gif");
+	private Icon iconDelete = ResourceLoader.loadImageIcon(getClass(), DELETE);
+	private Icon iconExecute = ResourceLoader.loadImageIcon(getClass(), EXECUTE);
+	private Icon iconModify = ResourceLoader.loadImageIcon(getClass(), MODIFY);
 	/** Bottone per l'ok.*/
 	private JButton ok = new JButton("Crea mondo", iconCreate);
 	/** Si richiama poi la classe di creazione del mondo con i parametri immessi.*/
@@ -71,12 +73,12 @@ public class RubyRescueWorldParameters extends JFrame implements ActionListener,
 		setSize(sizew, sizeh);
 		setLocation((w-sizew)/2 , (h-sizeh)/2);
 		/*---------------------------------------------------------*/
-		iconWall = new ImageIcon(getClass().getResource(wall).getPath(), "wall");
-		iconEntry = new ImageIcon(getClass().getResource(entry).getPath(), "entry");
-		iconExit = new ImageIcon(getClass().getResource(exit).getPath(), "exit");
-		iconDebrisNo = new ImageIcon(getClass().getResource(debrisNo).getPath(), "debris");
-		iconDebrisYes = new ImageIcon(getClass().getResource(debrisYes).getPath(), "debrisYes");
-		iconNull = new ImageIcon(getClass().getResource(nulla).getPath(), "empty");
+		iconWall = ResourceLoader.loadImageIcon(getClass(), WALL, "wall");
+		iconEntry = ResourceLoader.loadImageIcon(getClass(), ENTRY, "entry");
+		iconExit = ResourceLoader.loadImageIcon(getClass(), EXIT, "exit");
+		iconDebrisNo = ResourceLoader.loadImageIcon(getClass(), DEBRIS_NO, "debris");
+		iconDebrisYes = ResourceLoader.loadImageIcon(getClass(), DEBRIS_YES, "debrisYes");
+		iconNull = ResourceLoader.loadImageIcon(getClass(), VOID,"empty");
 		/*-------------- Costruzione dell'interfaccia--------------*/
 		Container container = getContentPane();
 		JPanel total = new JPanel();
@@ -209,7 +211,7 @@ public class RubyRescueWorldParameters extends JFrame implements ActionListener,
 					anteFrame.setVisible(false);
 				}
 				new RubyRescueWorldParameters();
-				Engine engine = new Engine(null, "changeWorld");
+				//Engine engine = new Engine(null, "changeWorld");
 			} else if (text.equals("Esegui")) {
 				if (list.getSelectedValue() != null) {
 					try {
